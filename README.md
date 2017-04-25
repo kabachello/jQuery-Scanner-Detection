@@ -25,50 +25,46 @@ See a detailed tutorial with presets for different scanner models and first step
 
 Options
 -------
-###onComplete
-Default: false  
+
+### onComplete 
 Callback after detection of a successful scanning
-###onError
-Default: false  
+### onError 
 Callback after detection of a unsuccessful scanning (scanned string in parameter)
-###onReceive
-Default: false  
+### onReceive 
 Callback after receiving and processing a char (scanned char in parameter)
-###onKeyDetect
-Default: false  
+### onKeyDetect  
 Callback after detecting a keyDown (key char in parameter) - in contrast to onReceive, this fires for non-character keys like tab, arrows, etc. too!
-###onScanButtonLongPressed
-Default: false  
+### onScanButtonLongPressed  
 Callback after detection of a successfull scan while the scan button was pressed and held down. This can only be used if the scan button behaves as a key itself (see scanButtonKeyCode). This long press event can be used to add a secondary action. For example, if the primary action is to count some items with barcodes (e.g. products at goods-in), it is comes very handy if a number pad pops up on the screen when the scan button is held. Large number can then be easily typed it instead of scanning fifty times in a row. 
 Note: this option requires scanButtonKeyCode to be set to a valid key code!
-###timeBeforeScanTest
+### timeBeforeScanTest
 Default: 100  
 Wait duration (ms) after keypress event to check if scanning is finished
-###avgTimeByChar
+### avgTimeByChar
 Default: 30  
 Average time (ms) between 2 chars. Used to do difference between keyboard typing and scanning
-###minLength
+### minLength
 Default: 6  
 Minimum length for a scanning
-###endChar
+### endChar
 Default: [9,13]  
 Chars to remove and means end of scanning
-###startChar
+### startChar
 Default: []  
 Chars to remove and means start of scanning
-###ignoreIfFocusOn
+### ignoreIfFocusOn
 Default: false  
 Ignore scans if the currently focused element matches this selector. Per example, if you set this option to 'input', scanner detection will be disable if an input is focused, when the scan occurs.
-###scanButtonKeyCode
-Default: false  
+### scanButtonKeyCode
+Default: null  
 Key code of the scanner hardware button (if the scanner button a acts as a key itself). Knowing this key code is important, because it is not part of the scanned code and must be ignored. On the other hand, knowing it can be usefull: pressing the button multiple times fast normally results just in one scan, but you still could count the number of times pressed, allowing the user to input quantities this way (typical use case would be counting product at goods-in). 
-###scanButtonLongPressThreshold
+### scanButtonLongPressThreshold
 Default: 3  
 You can let the user perform some special action by pressing and holding the scan button. In this case the button will issue multiple keydown events. This parameter sets, how many sequential events should be interpreted as holding the button down.  
-###stopPropagation
+### stopPropagation
 Default: false  
 Stop immediate propagation on keypress event
-###preventDefault
+### preventDefault
 Default: false  
 Prevent default action on keypress event
 
@@ -84,18 +80,18 @@ Of course, events exist only if plugin is initialized on selector.
         .bind('scannerDetectionError',function(e,data){...})
         .bind('scannerDetectionReceive',function(e,data){...})
 
-###scannerDetectionComplete
+### scannerDetectionComplete
 Callback after detection of a successful scanning  
 Event data: {string: "scanned string"}
-###scannerDetectionError
+### scannerDetectionError
 Callback after detection of a unsuccessful scanning  
 Event data: {string: "scanned string"}  
-###scannerDetectionReceive
+### scannerDetectionReceive
 Callback after receive and process a char  
-Event data: {evt: {original keypress event}}
-###scannerDetectionKeyDetect
+Event data: {evt: {original keydown event}}
+### scannerDetectionKeyDetect
 Callback after detecting a keyDown - in contrast to onReceive, this fires for non-character keys like tab, arrows, etc. too!
-Event data: {evt: {original keypress event}}
+Event data: {evt: {original keydown event}}
 
 Requirements
 ------------

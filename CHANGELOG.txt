@@ -1,6 +1,11 @@
+1.2.2
+  The keydown event is now used for input characters instead of keypress
+  Various internal code changes to use jQuery plugin best practices
+
 1.2.1
   Add a onKeyDetect callback being called if any key (even non-chars) is detected
   Changed default scanButtonKeyCode to false (it turned out, that the previous value of '0' was actually used by some scanners)
+
 1.2.0
   Add options startChar, ignoreIfFocusOn, scanButtonKeyCode, scanButtonLongPressThreshold
 
